@@ -56,6 +56,18 @@
                 opacity: 0;
             }
         }
+        
+        #overlay {
+            position: fixed;
+            inset: 0;
+            background: black;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            z-index: 999;
+        }
     </style>
 </head>
 
@@ -65,11 +77,12 @@
 
     <div id="section-3">
         <div class="photo-contain"></div>
+        <div id="overlay">💖 Bấm vào đây nè 💖</div>
     </div>
     <audio id="bg-music" autoplay loop muted>
-    <source src="music/VSTRA - Ai Ngoài Anh (Official Audio).mp3" type="audio/mpeg">
+   
+        <source src="music/VSTRA - Ai Ngoài Anh (Official Audio).mp3" type="audio/mpeg">
 </audio>
-
 
 </body>
 
@@ -211,16 +224,14 @@
 
     }, 4000);
 
-    window.addEventListener("load", () => {
+    document.getElementById("overlay").onclick = () => {
         const audio = document.getElementById("bg-music");
 
-        // bật play
-        audio.play().then(() => {
-            audio.muted = false; // mở tiếng lại
-        }).catch(() => {
-            console.log("Autoplay bị chặn");
-        });
-    });
+        audio.muted = false;
+        audio.play();
+
+        document.getElementById("overlay").style.display = "none";
+    };
 </script>
 
 </html>
