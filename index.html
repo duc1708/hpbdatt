@@ -136,9 +136,6 @@
         const centerX = window.innerWidth / 2;
         const centerY = window.innerHeight / 2;
 
-        // 👇 scale theo màn hình
-        const scale = Math.min(window.innerWidth, window.innerHeight) / 25;
-
         for (let i = 0; i < count; i++) {
             let t = Math.PI * 2 * (i / count);
 
@@ -150,8 +147,8 @@
                 Math.cos(4 * t);
 
             positions.push({
-                x: centerX + x * scale,
-                y: centerY - y * scale
+                x: centerX + x * 8,
+                y: centerY - y * 8
             });
         }
 
